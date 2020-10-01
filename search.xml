@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>基于hexo搭建博客</title>
+    <url>/2018/02/27/%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>问术</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>github</tag>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于Kalman滤波的理解</title>
     <url>/2020/08/30/%E5%85%B3%E4%BA%8E%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E7%9A%84%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<p>写在本文之前，有两个重要的思想需贯穿脑海之中：  </p>
@@ -214,20 +228,6 @@ p(\mathbf{x_{k}} | \mathbf{z_{k}}) - N(\mathbf{\hat{x}_{k}},\mathbf{P_{k}})
       </categories>
       <tags>
         <tag>Kalman滤波</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于hexo搭建博客</title>
-    <url>/2018/02/27/%E5%9F%BA%E4%BA%8Ehexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[
-]]></content>
-      <categories>
-        <category>问术</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>github</tag>
-        <tag>coding</tag>
       </tags>
   </entry>
 </search>
