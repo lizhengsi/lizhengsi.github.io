@@ -713,7 +713,7 @@ L(P&#39;_{ij}-\hat{P&#39;}(K,R_{i},t_{i},(P_{w})_{j})=
 <li>综合内外参、畸变系数，利用极大似然估计对这些参数进行优化。</li>
 </ol>
 <h1 id="代码">代码</h1>
-<p>基于张正友标定相机内参，详见C++实现代码<a href="%5Blizhengsi/zhangCalibration%20(github.com)%5D(https://github.com/lizhengsi/zhangCalibration)">zhangCalibration</a></p>
+<p>基于张正友标定相机内参，详见C++实现代码<a href="https://github.com/lizhengsi/zhangCalibration">zhangCalibration</a>)</p>
 <h1 id="参考">参考</h1>
 <ul>
 <li>A Flexible New Technique for Camera Calibration, zhang</li>
