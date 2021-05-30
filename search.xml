@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>基于Hexo搭建个人博客</title>
-    <url>/skill/Build%20a%20personal%20blog%20based%20on%20Hexo/</url>
-    <content><![CDATA[<a id="more"></a>
-]]></content>
-      <categories>
-        <category>问术</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>github</tag>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于Kalman滤波的理解</title>
     <url>/skill/Understanding_of_Kalman_Filter/</url>
     <content><![CDATA[<p>卡尔曼滤波（Kalman filter）以它的发明者Rudolf. Emil. Kalman先生命名，是一种高效率的递归滤波器（自回归滤波器），它能够从一系列的不完全及包含噪声的测量中，估计动态系统的状态。在控制领域，Kalman滤波被称为<strong>线性二次型估计</strong>，其也可以认为是一个最优化自回归数据处理算法（optimal recursive data processing algorithm），广泛应用于飞机及太空船的导引、导航及控制。</p>
@@ -233,6 +219,223 @@ p(\mathbf{x_{k}} | \mathbf{z_{k}}) - N(\mathbf{\hat{x}_{k}},\mathbf{P_{k}})
       </categories>
       <tags>
         <tag>Kalman filter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于Hexo搭建个人博客</title>
+    <url>/skill/Build_a_personal_blog_based_on_Hexo/</url>
+    <content><![CDATA[<h1 id="前言">前言</h1>
+<p><a href="https://hexo.io/zh-cn/">Hexo</a> 是一个基于 <a href="https://nodejs.org/">Node.js</a>的快速、简洁且高效的博客框架，通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 <a href="https://hexo.io/zh-cn/docs/tag-plugins.html">标签插件</a> 来快速的插入特定形式的内容。</p>
+<a id="more"></a>
+<h1 id="准备工作">准备工作</h1>
+<p>准备工作主要配置相关环境和基本要求，新手建议在安装或注册账号时先使用搜索引擎了解详细的安装配置方法，避免后续出错。</p>
+<h2 id="github账号">GitHub账号</h2>
+<p>如没有使用过GitHub，前往<a href="https://github.com/">GitHub</a>注册一个账号，并了解下GitHub基本信息 ，此处省略...</p>
+<h2 id="安装git">安装git</h2>
+<ul>
+<li>Windows：下载并安装 <a href="https://git-scm.com/download/win">git</a> 。</li>
+<li>Mac：使用 Homebrew, MacPorts ：<code>brew install git</code>;或下载 安装程序 安装。</li>
+<li>Linux (Ubuntu, Debian)：<code>sudo apt-get install git-core</code></li>
+</ul>
+<p>检验是否安装成功： <code>$ git version</code></p>
+<h2 id="安装node.js">安装Node.js</h2>
+<p>去 <a href="https://nodejs.org/en/download/">Node.js</a> 官网下载所需系统的安装包，并根据提示安装即可。Node.js版本及对应的hexo版本如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Hexo 版本</th>
+<th style="text-align: left;">最低兼容 Node.js 版本</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">5.0+</td>
+<td style="text-align: left;">10.13.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.1 - 4.2</td>
+<td style="text-align: left;">8.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.0</td>
+<td style="text-align: left;">8.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.3 - 3.9</td>
+<td style="text-align: left;">6.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.2 - 3.3</td>
+<td style="text-align: left;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.0 - 3.1</td>
+<td style="text-align: left;">0.10 or iojs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0.0.1 - 2.8</td>
+<td style="text-align: left;">0.10</td>
+</tr>
+</tbody>
+</table>
+<p>检验是否安装成功： <code>$ node -v</code></p>
+<h2 id="安装hexo">安装hexo</h2>
+<p>上述两个必备程序安装成功之后，只需要通过npm便可以完成Hexo的安装了。 <code>$ npm install -g hexo-cli</code> 至此，完成环境配置。</p>
+<h1 id="本地部署">本地部署</h1>
+<h2 id="本地初始化">本地初始化</h2>
+<p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<h2 id="本地目录结构">本地目录结构</h2>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds&#x2F;</span><br><span class="line">├── source&#x2F;</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes&#x2F;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>_config.yml</li>
+</ul>
+<p>网站的 <a href="https://hexo.io/zh-cn/docs/configuration">配置</a> 信息，您可以在此配置大部分的参数。</p>
+<ul>
+<li>package.json</li>
+</ul>
+<p>应用程序的信息。<a href="https://ejs.co/">EJS</a>, <a href="http://learnboost.github.io/stylus/">Stylus</a> 和 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> renderer 已默认安装，您可以自由移除。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package.json&#123;</span><br><span class="line">  &quot;name&quot;: &quot;hexo-site&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;hexo&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: &quot;&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;hexo&quot;: &quot;^3.8.0&quot;,</span><br><span class="line">    &quot;hexo-generator-archive&quot;: &quot;^0.1.5&quot;,</span><br><span class="line">    &quot;hexo-generator-category&quot;: &quot;^0.1.3&quot;,</span><br><span class="line">    &quot;hexo-generator-index&quot;: &quot;^0.2.1&quot;,</span><br><span class="line">    &quot;hexo-generator-tag&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-ejs&quot;: &quot;^0.3.1&quot;,</span><br><span class="line">    &quot;hexo-renderer-stylus&quot;: &quot;^0.3.3&quot;,</span><br><span class="line">    &quot;hexo-renderer-marked&quot;: &quot;^0.3.2&quot;,</span><br><span class="line">    &quot;hexo-server&quot;: &quot;^0.3.3&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>scaffolds</li>
+</ul>
+<p><a href="https://hexo.io/zh-cn/docs/writing">模版</a> 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
+<p>Hexo的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。</p>
+<ul>
+<li>source</li>
+</ul>
+<p>资源文件夹是存放用户资源的地方。除 <code>_posts</code> 文件夹之外，开头命名为 <code>_</code> (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 <code>public</code> 文件夹，而其他文件会被拷贝过去。</p>
+<ul>
+<li>themes</li>
+</ul>
+<p><a href="https://hexo.io/zh-cn/docs/themes">主题</a> 文件夹。Hexo 会根据主题来生成静态页面。</p>
+<h2 id="启动本地服务">启动本地服务</h2>
+<p>在指定文件夹下，执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g   &#x2F;&#x2F;或者hexo generate </span><br><span class="line">hexo s   &#x2F;&#x2F;或者hexo server，可以在http:&#x2F;&#x2F;localhost:4000&#x2F; 查看</span><br></pre></td></tr></table></figure>
+<p><code>hexo s</code>是开启本地预览服务，打开浏览器访问 <a href="http://localhost:4000/">http://localhost:4000</a> 即可看到内容。到这里，本地的一些基本部署就基本完成了，接下来将本地部署推送至github，并通过访问github静态页面显示。</p>
+<h1 id="远程部署">远程部署</h1>
+<h2 id="创建仓库">创建仓库</h2>
+<p>新建一个名为<code>username.github.io</code>的仓库，创建成功后，默认会在你这个仓库里生成一些示例页面，以后你的网站所有代码都是放在这个仓库里。</p>
+<h2 id="绑定域名">绑定域名</h2>
+<h2 id="配置ssh-key">配置SSH key</h2>
+<p>首先在本地创建<code>ssh key</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
+<p>后面的<code>your_email@youremail.com</code>改为你在github上注册的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。成功的话会在<code>~/</code>(windows路径：/c/Users/username/)下生成<code>.ssh</code>文件夹，进去，打开<code>id_rsa.pub</code>，复制里面的<code>key</code>。</p>
+<p>回到github上，进入 Account Settings（账户配置），左边选择SSH Keys，Add SSH Key,title随便填，粘贴在你电脑上生成的key。</p>
+<p>为了验证是否成功，在git bash下输入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>如果是第一次的会提示是否continue，输入yes就会看到：You've successfully authenticated, but GitHub does not provide shell access 。这就表示已成功连上github。</p>
+<p>接下来我们要做的就是把本地仓库传到github上去，在此之前还需要设置username和email，因为github每次commit都会记录他们。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;your name&quot;</span><br><span class="line">$ git config --global user.email &quot;your_email@youremail.com&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="远程推送">远程推送</h2>
+<p>安装 <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>修改配置本地配置文件_config.yml。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt; #https:&#x2F;&#x2F;bitbucket.org&#x2F;JohnSmith&#x2F;johnsmith.bitbucket.io</span><br><span class="line">  branch: [branch]</span><br><span class="line">  message: [message]</span><br></pre></td></tr></table></figure>
+<p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>其中， <code>hexo clean</code>清除了你之前生成的东西，也可以不加。 <code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写。</p>
+<p><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写。</p>
+<p>现在，在浏览器中输入<code>username.github.io</code>，便可以打开网页了。接下来，需要对hexo进行基本配置和主题配置。</p>
+<h1 id="基本配置">基本配置</h1>
+<p>这部分网上有很多写的比较好的，详见附录参考。</p>
+<h1 id="主题配置">主题配置</h1>
+<p>Hexo提供多种主题配置，参见<a href="https://hexo.io/themes/">hexo官网</a>主题界面，这里配置的是<a href="http://theme-next.iissnan.com/">Next主题</a>，简洁才是最美的。在 Hexo 中有两份主要的配置文件，其名称都是 <code>_config.yml</code>。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。</p>
+<p>为了描述方便，在以下说明中，将前者称为 <strong>站点配置文件</strong>， 后者称为 <strong>主题配置文件</strong>。Hexo 安装主题的方式非常简单，只需要将主题文件拷贝至站点目录的 <code>themes</code> 目录下， 然后修改下配置文件即可。具体到 NexT 来说，安装步骤如下。</p>
+<h3 id="下载主题">下载主题</h3>
+<p>如果你熟悉 <a href="http://git-scm.com/">Git</a>， 建议你使用 克隆最新版本 的方式，之后的更新可以通过 <code>git pull</code> 来快速更新， 而不用再次下载压缩包替换。</p>
+<ul>
+<li><a href="http://theme-next.iissnan.com/getting-started.html#clone">克隆最新版本</a></li>
+<li><a href="http://theme-next.iissnan.com/getting-started.html#stable">下载稳定版本</a></li>
+</ul>
+<p>在终端窗口下，定位到 Hexo 站点目录下。使用 <code>Git</code> checkout 代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd your-hexo-site</span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;iissnan&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+<h3 id="启用主题">启用主题</h3>
+<p>与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 <strong>站点配置文件</strong>， 找到 <code>theme</code> 字段，并将其值更改为 <code>next</code>。</p>
+<p>启用 NexT 主题</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<p>到此，NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 <code>hexo clean</code> 来清除 Hexo 的缓存。</p>
+<h3 id="验证主题">验证主题</h3>
+<p>首先启动 Hexo 本地站点，并开启调试模式（即加上 <code>--debug</code>），整个命令是 <code>hexo s --debug</code>。 在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更好的定位错误。 当命令行输出中提示出：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;0.0.0.0:4000&#x2F;. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>此时即可使用浏览器访问 <code>http://localhost:4000</code>，检查站点是否正确运行。</p>
+<p>当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse</p>
+<img src="/skill/Build_a_personal_blog_based_on_Hexo/validation-default-scheme-mac.png" class="" title="img">
+<p>现在，你已经成功安装并启用了 NexT 主题。下一步我们将要更改一些主题的设定，包括个性化以及集成第三方服务。</p>
+<h3 id="文件组成">文件组成</h3>
+<p>包含主题文件，整个hexo文件结构目录如下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">.</span></span><br><span class="line"><span class="string">├──</span> <span class="string">.deploy_git/</span>			<span class="comment">#远程部署</span></span><br><span class="line"><span class="string">├──</span> <span class="string">node_modules/</span>			<span class="comment">#第三方插件</span></span><br><span class="line"><span class="string">├──</span> <span class="string">public/</span>					<span class="comment">#html源码，hexo g生成</span></span><br><span class="line"><span class="string">├──</span> <span class="string">scaffolds/</span>				<span class="comment">#模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">draft.md</span>			<span class="comment">#草稿</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">page.md</span>				<span class="comment">#页面</span></span><br><span class="line"><span class="string">|</span>   <span class="string">└──</span> <span class="string">post.md</span>				<span class="comment">#文章</span></span><br><span class="line"><span class="string">├──</span> <span class="string">source/</span>					<span class="comment">#个人资源</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">_posts/</span>				<span class="comment">#存放个人文章</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">about/</span>				<span class="comment">#后面是一些自定义文件夹</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">categories/</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">life/</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">reading/</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">skill/</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">tags/</span></span><br><span class="line"><span class="string">|</span>   <span class="string">└──</span> <span class="string">Tao/</span></span><br><span class="line"><span class="string">├──</span> <span class="string">themes/</span>					<span class="comment">#主题</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">landscape/</span></span><br><span class="line"><span class="string">|</span>   <span class="string">└──</span> <span class="string">next/</span>				<span class="comment">#next主题</span></span><br><span class="line"><span class="string">|</span>       <span class="string">├──</span> <span class="string">languages/</span></span><br><span class="line"><span class="string">|</span>       <span class="string">├──</span> <span class="string">layout/</span></span><br><span class="line"><span class="string">|</span>       <span class="string">├──</span> <span class="string">scripts/</span></span><br><span class="line"><span class="string">|</span>       <span class="string">├──</span> <span class="string">source/</span></span><br><span class="line"><span class="string">|</span>       <span class="string">├──</span> <span class="string">test/</span></span><br><span class="line"><span class="string">|</span>       <span class="string">├──</span> <span class="string">package.json</span></span><br><span class="line"><span class="string">|</span>       <span class="string">└──_config.yml</span>		<span class="comment">#主题配置文件</span></span><br><span class="line"><span class="string">├──</span> <span class="string">package.json</span></span><br><span class="line"><span class="string">└──</span> <span class="string">_config.yml</span>				<span class="comment">#站点配置文件</span></span><br></pre></td></tr></table></figure>
+<p>Next主题目录如下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">├──</span> <span class="string">.github</span>                <span class="comment">#github信息</span></span><br><span class="line"><span class="string">├──</span> <span class="string">languages</span>              <span class="comment">#多语言</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">_en.yml</span>            <span class="comment">#默认语言</span></span><br><span class="line"><span class="string">|</span>   <span class="string">└──</span> <span class="string">zh-CN.yml</span>          <span class="comment">#简体中文</span></span><br><span class="line"><span class="string">|</span>   <span class="string">└──</span> <span class="string">zh-TW.yml</span>          <span class="comment">#繁体中文</span></span><br><span class="line"><span class="string">├──</span> <span class="string">layout</span>                 <span class="comment">#布局，根目录下的*.swig文件是对主页，分页，存档等的控制</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">_custom</span>            <span class="comment">#可以自定义的模板，覆盖原有模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">head.swig</span>      <span class="comment">#文首样式</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">header.swig</span>    <span class="comment">#头部样式</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">sidebar.swig</span>   <span class="comment">#侧边栏样式</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">_macro</span>             <span class="comment">#可以自定义的模板，覆盖原有模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">post.swig</span>      <span class="comment">#文章模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">reward.swig</span>    <span class="comment">#打赏模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">sidebar.swig</span>   <span class="comment">#侧边栏模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">_partial</span>           <span class="comment">#局部的布局</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">head</span>           <span class="comment">#头部模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">search</span>         <span class="comment">#搜索模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">share</span>          <span class="comment">#分享模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">_script</span>            <span class="comment">#局部的布局</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">_third-party</span>       <span class="comment">#第三方模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">_layout.swig</span>       <span class="comment">#主页面模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">index.swig</span>         <span class="comment">#主页面模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">page</span>               <span class="comment">#页面模板</span></span><br><span class="line"><span class="string">|</span>   <span class="string">└──</span> <span class="string">tag.swig</span>           <span class="comment">#tag模板</span></span><br><span class="line"><span class="string">├──</span> <span class="string">scripts</span>                <span class="comment">#script源码</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">tags</span>               <span class="comment">#tags的script源码</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">marge.js</span>           <span class="comment">#页面模板</span></span><br><span class="line"><span class="string">├──</span> <span class="string">source</span>                 <span class="comment">#源码</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">css</span>                <span class="comment">#css源码</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">_common</span>        <span class="comment">#*.styl基础css</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">├──</span> <span class="string">_custom</span>        <span class="comment">#*.styl自定义局部css</span></span><br><span class="line"><span class="string">|</span>   <span class="string">|</span>   <span class="string">└──</span> <span class="string">_mixins</span>        <span class="comment">#mixins的css</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">fonts</span>              <span class="comment">#字体</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">images</span>             <span class="comment">#图片</span></span><br><span class="line"><span class="string">|</span>   <span class="string">├──</span> <span class="string">js</span>                 <span class="comment">#javascript源代码</span></span><br><span class="line"><span class="string">|</span>   <span class="string">└──</span> <span class="string">lib</span>                <span class="comment">#引用库</span></span><br><span class="line"><span class="string">├──</span> <span class="string">_config.yml</span>            <span class="comment">#主题配置文件</span></span><br><span class="line"><span class="string">└──</span> <span class="string">README.md</span>              <span class="comment">#说明文件</span></span><br></pre></td></tr></table></figure>
+<p>可以根据自己的需要进行适当修改。</p>
+<h3 id="选项配置">选项配置</h3>
+<p>在配置Next主题时一些细节已经遗忘，主要是参照参考项中一些博客，可根据个人需求进行配置，以下简单列举在配置主题时的一些设置项：</p>
+<ul>
+<li><p>页面&amp;菜单布局</p>
+<p>采用Next主题中的Gemini布局，菜单栏在侧栏，主题配置文件如下</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span></span><br></pre></td></tr></table></figure>
+<p>菜单中含几个类别，我想把不同的文章归类在不同类别下显示，总的目录是categories/，比如新建一个类别skill，则在主题配置文件中修改如下：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">skill:</span> <span class="string">/categories/skill/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-arrow-down</span></span><br></pre></td></tr></table></figure>
+<p>在-CN.yml文件中修改中文映射，这样在主页时就会按映射的中文显示</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">首页</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">分类</span></span><br><span class="line">  <span class="attr">skill:</span> <span class="string">问术</span></span><br></pre></td></tr></table></figure>
+<p>然后在根目录，并在该目录生成文件index.md</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 问术</span><br><span class="line">layout: &quot;skill&quot;</span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure>
+<p>这样，点击主页的“问术”按钮，则会显示skill分类页面</p>
+<img src="/skill/Build_a_personal_blog_based_on_Hexo/image-20210530111244240.png" class="" title="image-20210530111244240"></li>
+<li><p>网站映射</p>
+<p>通过上述方式创建的skill页面的网址链接中会存在中文符，为了改成英文，在根目录下的站点配置文件中修改映射值，将链接中的中文映射为英语，这样就不会乱码了</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span></span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line">  <span class="string">问术:</span> <span class="string">skill</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br><span class="line">  <span class="comment">#算法</span></span><br><span class="line">  <span class="string">算法:</span> <span class="string">algorithm</span></span><br><span class="line">  <span class="string">滤波:</span> <span class="string">filter</span></span><br><span class="line">  <span class="string">点云:</span> <span class="string">point</span> <span class="string">cloud</span></span><br></pre></td></tr></table></figure></li>
+<li><p>文章模板配置</p>
+<p>以下是post模板，其中，公式采用mathjax渲染，增加<!-- more -->来显示摘要。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">urltitle: </span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">update: </span><br><span class="line"></span><br><span class="line">top: false</span><br><span class="line">toc: true</span><br><span class="line">comments: true</span><br><span class="line">mathjax: true</span><br><span class="line"></span><br><span class="line">keywords: </span><br><span class="line">description:</span><br><span class="line">tags: </span><br><span class="line">categories:</span><br><span class="line">- 111</span><br><span class="line">- 222</span><br><span class="line">- 333</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">摘要显示....</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>公式</p>
+<p>首选，安装<a href="https://github.com/jgm/pandoc/releases/tag/2.6">pandoc</a>，然后，卸载hexo默认的markd，安装<code>hexo-renderer-pandoc</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
+<p>安装hexo-math 插件以支持 latex 公式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-math --save</span><br></pre></td></tr></table></figure>
+<p>在hexo 博客中的 _config.yml 中添加 hexo-math 插件</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">markdown:</span><br><span class="line">  plugins:</span><br><span class="line">    - markdown-it-footnote</span><br><span class="line">    - markdown-it-sup</span><br><span class="line">    - markdown-it-sub</span><br><span class="line">    - markdown-it-abbr</span><br><span class="line">    - markdown-it-emoji</span><br><span class="line">    - hexo-math</span><br></pre></td></tr></table></figure>
+<p>打开 theme/next/_config.yml 文件，找到mathjax 位置, 设置为以下</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># MathJax Support</span><br><span class="line">mathjax:</span><br><span class="line">  enable: true</span><br><span class="line">  per_page: true</span><br></pre></td></tr></table></figure></li>
+<li><p>markdown插入图片</p>
+<p>首先，修改站点配置文件<code>_config.yml</code>中的<code>post_asset_folder: true</code></p>
+<p>然后，使用typora编辑MarkDown文件，并在图片设置项选择“复制到指定路径”，./${filename}</p>
+<p>最后，使用<code>hexo new “我的博客”</code>，在文章目录创建新文章，并且创建同名文件夹存放图片</p></li>
+</ul>
+<h1 id="日常写作">日常写作</h1>
+<ul>
+<li><p>新建文章</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>在命令中指定文章的布局（layout），默认为 <code>post</code>，可以通过修改 <code>_config.yml</code> 中的 <code>default_layout</code> 参数来指定默认布局。</p></li>
+<li><p>生成静态文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></li>
+<li><p>服务器查看更新</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></li>
+<li><p>远程部署</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></li>
+<li><a href="http://theme-next.iissnan.com/">NexT 使用文档</a></li>
+<li><a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">使用hexo+github搭建免费个人博客详细教程</a></li>
+<li><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029">hexo史上最全搭建教程</a></li>
+<li><a href="https://www.cnblogs.com/guide2it/articles/11111457.html">Hexo+NexT（一）：在Windows下安装Hexo+NexT及搭建博客</a></li>
+<li><a href="https://www.cnblogs.com/wsmrzx/p/9439470.html">Hexo系列(四) NexT主题配置</a></li>
+<li><a href="https://blog.csdn.net/as480133937/article/details/100138838/?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-4&amp;spm=1001.2101.3001.4242">Hexo-Next 主题博客个性化配置超详细</a></li>
+<li><a href="http://www.chenlianhan.com/2020/03/20/HEXO-NEXT界面美化（持续更新）/">HEXO+NEXT界面美化</a></li>
+<li><a href="https://blog.csdn.net/u012294515/article/details/83094693">Hexo | NexT打造一个炫酷博客</a></li>
+<li>[<a href="https://blog.csdn.net/u012294515/article/details/83094693">Hexo+Github+jsDelivr+Vercel建站备忘录</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>问术</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>github</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
 </search>
