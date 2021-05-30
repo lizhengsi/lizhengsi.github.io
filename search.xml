@@ -638,14 +638,14 @@ c_{y} = (B_{12}B_{13}-B_{11}B_{23})/(B_{11}B_{22}-B_{12}^2)
 <h2 id="外参的求解">外参的求解</h2>
 <p>在求得单应性矩阵<span class="math inline">\(H\)</span>和内参矩阵<span class="math inline">\(K\)</span>的基础上，结合<span class="math inline">\(H=K\begin{bmatrix}r_{1} &amp; r_{2} &amp; t \end{bmatrix}\)</span>和<span class="math inline">\(T=\begin{bmatrix}r_{1} &amp; r_{2} &amp; r_{3} &amp; t \end{bmatrix}\)</span>，<span class="math inline">\(r_{1}\)</span>、<span class="math inline">\(r_{2}\)</span>、<span class="math inline">\(t\)</span>可以求解，考虑单应性矩阵<span class="math inline">\(H\)</span>带有尺度因子，引入尺度因子<span class="math inline">\(\hat{\lambda}\)</span>进行矫正： <span class="math display">\[
 \left\{\begin{matrix}
-r_{1} = \hat{\lambda} A^{-1} H_{1}
+r_{1} = \hat{\lambda} K^{-1} H_{1}
 \\ 
-r_{2} = \hat{\lambda} A^{-1} H_{2}
+r_{2} = \hat{\lambda} K^{-1} H_{2}
 \\ 
-t = \hat{\lambda} A^{-1} H_{3}
+t = \hat{\lambda} K^{-1} H_{3}
 \end{matrix}\right.
 \]</span> 根据上式可以求得这里的尺度因子<span class="math inline">\(\hat{\lambda}\)</span>： <span class="math display">\[
-\hat{\lambda} = \frac{1}{||A^{-1}H_{1}||} = \frac{1}{||A^{-1}H_{2}||}
+\hat{\lambda} = \frac{1}{||K^{-1}H_{1}||} = \frac{1}{||K^{-1}H_{2}||}
 \]</span> 利用旋转矩阵的向量单位正交的特性，得到<span class="math inline">\(r_{3}\)</span>： <span class="math display">\[
 r_{3} = r_{1}\times r_{2}
 \]</span> 至此，完成外参矩阵<span class="math inline">\(T\)</span>的求解。</p>
