@@ -22,17 +22,17 @@
     var CONFIG = {"hostname":"lizhengsi.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false}};
   </script>
 
-  <meta name="description" content="前言 Hexo 是一个基于 Node.js的快速、简洁且高效的博客框架，通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 标签插件 来快速的插入特定形式的内容。">
+  <meta name="description" content="如果你要搭建个人博客网站，更注重内容的输出，而不是把时间花在网站的维护上，那么，通过Hexo来构建个人博客网站是一个很不错的选择。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Hexo搭建个人博客">
 <meta property="og:url" content="https://lizhengsi.github.io/skill/Build_a_personal_blog_based_on_Hexo/index.html">
 <meta property="og:site_name" content="思无邪">
-<meta property="og:description" content="前言 Hexo 是一个基于 Node.js的快速、简洁且高效的博客框架，通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 标签插件 来快速的插入特定形式的内容。">
+<meta property="og:description" content="如果你要搭建个人博客网站，更注重内容的输出，而不是把时间花在网站的维护上，那么，通过Hexo来构建个人博客网站是一个很不错的选择。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lizhengsi.github.io/skill/Build_a_personal_blog_based_on_Hexo/validation-default-scheme-mac.png">
 <meta property="og:image" content="https://lizhengsi.github.io/skill/Build_a_personal_blog_based_on_Hexo/image-20210530111244240.png">
 <meta property="article:published_time" content="2018-02-27T12:19:45.000Z">
-<meta property="article:modified_time" content="2021-05-30T06:27:35.830Z">
+<meta property="article:modified_time" content="2021-05-30T11:19:22.865Z">
 <meta property="article:author" content="正思">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="github">
@@ -239,7 +239,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#github%E8%B4%A6%E5%8F%B7"><span class="nav-number">2.1.</span> <span class="nav-text">GitHub账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85git"><span class="nav-number">2.2.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85node.js"><span class="nav-number">2.3.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-number">2.4.</span> <span class="nav-text">安装hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2"><span class="nav-number">3.</span> <span class="nav-text">本地部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">本地初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">本地目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.3.</span> <span class="nav-text">启动本地服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2"><span class="nav-number">4.</span> <span class="nav-text">远程部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">创建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">4.2.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEssh-key"><span class="nav-number">4.3.</span> <span class="nav-text">配置SSH key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%8E%A8%E9%80%81"><span class="nav-number">4.4.</span> <span class="nav-text">远程推送</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="nav-number">6.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B8%BB%E9%A2%98"><span class="nav-number">6.0.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8%E4%B8%BB%E9%A2%98"><span class="nav-number">6.0.2.</span> <span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E4%B8%BB%E9%A2%98"><span class="nav-number">6.0.3.</span> <span class="nav-text">验证主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%BB%84%E6%88%90"><span class="nav-number">6.0.4.</span> <span class="nav-text">文件组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E9%A1%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">6.0.5.</span> <span class="nav-text">选项配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E5%B8%B8%E5%86%99%E4%BD%9C"><span class="nav-number">7.</span> <span class="nav-text">日常写作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#github%E8%B4%A6%E5%8F%B7"><span class="nav-number">2.1.</span> <span class="nav-text">GitHub账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85git"><span class="nav-number">2.2.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85node.js"><span class="nav-number">2.3.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-number">2.4.</span> <span class="nav-text">安装hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2"><span class="nav-number">3.</span> <span class="nav-text">本地部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">本地初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">本地目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.3.</span> <span class="nav-text">启动本地服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2"><span class="nav-number">4.</span> <span class="nav-text">远程部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">创建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">4.2.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEssh-key"><span class="nav-number">4.3.</span> <span class="nav-text">配置SSH key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%8E%A8%E9%80%81"><span class="nav-number">4.4.</span> <span class="nav-text">远程推送</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-number">5.1.</span> <span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="nav-number">5.2.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B8%BB%E9%A2%98"><span class="nav-number">5.2.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8%E4%B8%BB%E9%A2%98"><span class="nav-number">5.2.2.</span> <span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E4%B8%BB%E9%A2%98"><span class="nav-number">5.2.3.</span> <span class="nav-text">验证主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%BB%84%E6%88%90"><span class="nav-number">5.2.4.</span> <span class="nav-text">文件组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E9%A1%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">5.2.5.</span> <span class="nav-text">选项配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E5%B8%B8%E5%86%99%E4%BD%9C"><span class="nav-number">6.</span> <span class="nav-text">日常写作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -254,7 +254,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,7 +266,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -350,7 +350,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-30 14:27:35" itemprop="dateModified" datetime="2021-05-30T14:27:35+08:00">2021-05-30</time>
+        <time title="修改时间：2021-05-30 19:19:22" itemprop="dateModified" datetime="2021-05-30T19:19:22+08:00">2021-05-30</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -380,9 +380,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="前言">前言</h1>
-<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a> 是一个基于 <a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>的快速、简洁且高效的博客框架，通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins.html">标签插件</a> 来快速的插入特定形式的内容。</p>
+        <p>如果你要搭建个人博客网站，更注重内容的输出，而不是把时间花在网站的维护上，那么，通过Hexo来构建个人博客网站是一个很不错的选择。</p>
 <a id="more"></a>
+<h1 id="前言">前言</h1>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a> 是一个基于 <a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>的快速、简洁且高效的博客框架，通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins.html">标签插件</a> 来快速的插入特定形式的内容。</p>
 <h1 id="准备工作">准备工作</h1>
 <p>准备工作主要配置相关环境和基本要求，新手建议在安装或注册账号时先使用搜索引擎了解详细的安装配置方法，避免后续出错。</p>
 <h2 id="github账号">GitHub账号</h2>
@@ -494,9 +495,10 @@
 <p>其中， <code>hexo clean</code>清除了你之前生成的东西，也可以不加。 <code>hexo generate</code> 顾名思义，生成静态文章，可以用 <code>hexo g</code>缩写。</p>
 <p><code>hexo deploy</code> 部署文章，可以用<code>hexo d</code>缩写。</p>
 <p>现在，在浏览器中输入<code>username.github.io</code>，便可以打开网页了。接下来，需要对hexo进行基本配置和主题配置。</p>
-<h1 id="基本配置">基本配置</h1>
+<h1 id="配置">配置</h1>
+<h2 id="基本配置">基本配置</h2>
 <p>这部分网上有很多写的比较好的，详见附录参考。</p>
-<h1 id="主题配置">主题配置</h1>
+<h2 id="主题配置">主题配置</h2>
 <p>Hexo提供多种主题配置，参见<a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo官网</a>主题界面，这里配置的是<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">Next主题</a>，简洁才是最美的。在 Hexo 中有两份主要的配置文件，其名称都是 <code>_config.yml</code>。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。</p>
 <p>为了描述方便，在以下说明中，将前者称为 <strong>站点配置文件</strong>， 后者称为 <strong>主题配置文件</strong>。Hexo 安装主题的方式非常简单，只需要将主题文件拷贝至站点目录的 <code>themes</code> 目录下， 然后修改下配置文件即可。具体到 NexT 来说，安装步骤如下。</p>
 <h3 id="下载主题">下载主题</h3>
@@ -624,6 +626,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/skill/model_of_camera_imaging_and_camera_Calibration/" rel="next" title="相机模型与标定">
+                  相机模型与标定 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
